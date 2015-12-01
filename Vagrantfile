@@ -10,12 +10,16 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 49001, host: 8001
   config.ssh.forward_agent = true
 
+
   config.vm.provider "virtualbox" do |vb|
    # Customize the amount of memory on the VM:
     vb.memory = "8192"
   end
 
   config.vm.synced_folder "/Users/plaks/GitHub/github.turbine.com/plaks/", "/home/vagrant/Git"
+
+
+  config.vm.provision "file", source: "~/.aws", destination: "~/.aws"
 
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update
