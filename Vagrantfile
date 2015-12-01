@@ -24,6 +24,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update
     sudo apt-get install wget -y
+    sudo apt-get install python-pip -y
     wget -O- https://get.docker.com/ | sh
     sudo usermod -aG docker
 
@@ -35,8 +36,8 @@ Vagrant.configure(2) do |config|
     #curl https://get.docker.com | bash
 
     # Install pip
-    sudo wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py
-    sudo python get-pip.py
+    # sudo wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+    # sudo python get-pip.py
 
     # Install python setuptools
     curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python
