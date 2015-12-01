@@ -38,5 +38,8 @@ Vagrant.configure(2) do |config|
     sudo wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py
     sudo python get-pip.py
 
+    # Install python setuptools
+    curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python
+
   SHELL
 end
