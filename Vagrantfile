@@ -9,14 +9,14 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 443, host: 44443
   config.vm.network "forwarded_port", guest: 49001, host: 8001
   config.ssh.forward_agent = true
-
+  config.vm.network "private_network", ip: "192.168.33.20"
 
   config.vm.provider "virtualbox" do |vb|
    # Customize the amount of memory on the VM:
     vb.memory = "8192"
   end
 
-  config.vm.synced_folder "/Users/plaks/GitHub/github.turbine.com/plaks/", "/home/vagrant/Git"
+  config.vm.synced_folder "/Users/plaks/GitHub/", "/home/vagrant/GitHub"
 
 
   config.vm.provision "file", source: "~/.aws", destination: "~/.aws"
@@ -41,6 +41,9 @@ Vagrant.configure(2) do |config|
 
     # Install python setuptools
     curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python
+
+    # Install coverage module for unittests
+    sudo pip install coverage
 
   SHELL
 end
