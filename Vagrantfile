@@ -28,6 +28,9 @@ Vagrant.configure(2) do |config|
     wget -O- https://get.docker.com/ | sh
     sudo usermod -aG docker
 
+    git config --global user.email "plaks@turbine.com"
+    git config --global user.name "Phil Laks"
+
     sudo ntpdate -s time.nist.gov
 
     sudo service ntp stop
