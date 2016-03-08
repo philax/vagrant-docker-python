@@ -45,9 +45,10 @@ Vagrant.configure(2) do |config|
     # Install python setuptools
     curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python
 
-    # Install coverage module for unittests and pytest for pytests
+    # Install coverage module for unittests and pytest for pytests, flask testing for... you get the idea
     sudo pip install coverage
     sudo pip install pytest
+    sudo pip install Flask-Testing
 
     # Install frontend tools
     sudo apt-get install nodejs-legacy -y
