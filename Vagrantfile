@@ -48,5 +48,12 @@ Vagrant.configure(2) do |config|
     # Install coverage module for unittests
     sudo pip install coverage
 
+    # Install frontend tools
+    sudo apt-get install nodejs-legacy -y
+    sudo apt-get install npm -y
+    sudo npm install
+    sudo npm install -g grunt-cli
+    sudo npm install --save-dev mocha
+
   SHELL
 end
