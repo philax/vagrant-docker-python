@@ -45,8 +45,9 @@ Vagrant.configure(2) do |config|
     # Install python setuptools
     curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python
 
-    # Install coverage module for unittests
+    # Install coverage module for unittests and pytest for pytests
     sudo pip install coverage
+    sudo pip install pytest
 
     # Install frontend tools
     sudo apt-get install nodejs-legacy -y
