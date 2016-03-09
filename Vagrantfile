@@ -48,6 +48,7 @@ Vagrant.configure(2) do |config|
     # Install coverage module for unittests and pytest for pytests, flask testing for... you get the idea
     sudo pip install coverage
     sudo pip install pytest
+    sudo pip install pytest-timeout
     sudo pip install Flask-Testing
 
     # Install frontend tools
