@@ -38,6 +38,8 @@ Vagrant.configure(2) do |config|
     sudo usermod -aG docker vagrant
     echo '----------------TESTING DOCKER--------------'
     docker run hello-world
+    echo '----------------INSTALLING DOCKER-COMPOSE--------------'
+    sudo pip install docker-compose
 
     echo '----------------INSTALLING GIT--------------'
     sudo apt-get install git
