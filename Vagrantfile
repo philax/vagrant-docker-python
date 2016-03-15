@@ -22,17 +22,29 @@ Vagrant.configure(2) do |config|
   #config.vm.provision "file", source: "~/.aws", destination: "~/.aws"
 
   config.vm.provision "shell", inline: <<-SHELL
+    sudo apt-get upgrade -y
     sudo apt-get update
+    echo '----------------INSTALLING WGET--------------'
     sudo apt-get install wget -y
+    echo '----------------INSTALLING PYTHON--------------'
+    sudo apt-get install python -y
+    echo '----------------INSTALLING PIP--------------'
     sudo apt-get install python-pip -y
-    wget -O- https://get.docker.com/ | sh
-    sudo usermod -aG docker
+    echo '----------------INSTALLING CURL--------------'
+    sudo apt-get install curl
+    echo '----------------INSTALLING DOCKER--------------'
+    curl -fsSL https://get.docker.com/ | sh
+    #wget -O- https://get.docker.com/ | bash
+    sudo usermod -aG docker vagrant
+    echo '----------------TESTING DOCKER--------------'
+    docker run hello-world
 
+    echo '----------------INSTALLING GIT--------------'
+    sudo apt-get install git
     git config --global user.email "plaks@turbine.com"
     git config --global user.name "Phil Laks"
 
-    sudo ntpdate -s time.nist.gov
-
+    echo '----------------FIXING TIME--------------'
     sudo service ntp stop
     sudo ntpdate -s time.nist.gov
     sudo service ntp start
@@ -43,20 +55,31 @@ Vagrant.configure(2) do |config|
     # sudo python get-pip.py
 
     # Install python setuptools
+    echo '----------------INSTALLING PYTHON SETUP TOOLS--------------'
     curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python
 
     # Install coverage module for unittests and pytest for pytests, flask testing for... you get the idea
+    echo '----------------INSTALLING PYTHON COVERAGE--------------'
     sudo pip install coverage
+    echo '----------------INSTALLING PYTHON PYTEST & TIMEOUT EXTENSION--------------'
     sudo pip install pytest
     sudo pip install pytest-timeout
+    echo '----------------INSTALLING PYTHON FLASK--------------'
+    sudo pip install Flask
+    echo '----------------INSTALLING PYTHON FLASK-TESTING--------------'
     sudo pip install Flask-Testing
 
     # Install frontend tools
+    echo '----------------INSTALLING NODEJS-LEGACY--------------'
     sudo apt-get install nodejs-legacy -y
-    sudo apt-get install npm -y
-    sudo npm install
-    sudo npm install -g grunt-cli
-    sudo npm install --save-dev mocha
-
+    #sudo apt-get install npm -y
+    echo '----------------CLEANING UP APT--------------'
+    sudo apt-get autoremove -y
+    echo '----------------INSTALLING NPM--------------'
+    sudo npm install npm
+    #sudo npm install -g grunt-cli
+    #sudo npm install --save-dev mocha
+    echo '--------------VAGRANTFILE PROVISION COMPLETE, LOGGING OUT--------------'
+    logout
   SHELL
 end
