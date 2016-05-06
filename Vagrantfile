@@ -29,7 +29,9 @@ Vagrant.configure(2) do |config|
     echo '----------------INSTALLING PYTHON--------------'
     sudo apt-get install python -y
     echo '----------------INSTALLING PIP--------------'
-    sudo apt-get install python-pip -y
+    #sudo apt-get install python-pip -y
+    wget https://bootstrap.pypa.io/get-pip.py
+    python get-pip.py
     echo '----------------INSTALLING CURL--------------'
     sudo apt-get install curl
     echo '----------------INSTALLING DOCKER--------------'
@@ -65,7 +67,7 @@ Vagrant.configure(2) do |config|
     sudo pip install coverage
     echo '----------------INSTALLING PYTHON PYTEST & TIMEOUT EXTENSION--------------'
     sudo pip install pytest
-    sudo pip install pytest-timeout
+    # sudo pip install pytest-timeout
     echo '----------------INSTALLING PYTHON FLASK--------------'
     sudo pip install Flask
     echo '----------------INSTALLING PYTHON FLASK-TESTING--------------'
