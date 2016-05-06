@@ -78,7 +78,9 @@ Vagrant.configure(2) do |config|
     echo '----------------CLEANING UP APT--------------'
     sudo apt-get autoremove -y
     echo '----------------INSTALLING NPM--------------'
-    sudo npm install npm
+    curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    #sudo npm install npm
     #sudo npm install -g grunt-cli
     #sudo npm install --save-dev mocha
     echo '--------------VAGRANTFILE PROVISION COMPLETE, LOGGING OUT--------------'
