@@ -72,6 +72,8 @@ Vagrant.configure(2) do |config|
     sudo pip install Flask
     echo '----------------INSTALLING PYTHON FLASK-TESTING--------------'
     sudo pip install Flask-Testing
+    echo '----------------INSTALLING BOTO3--------------'
+    sudo pip install boto3
 
     # Install frontend tools
     echo '----------------INSTALLING NODEJS-LEGACY--------------'
