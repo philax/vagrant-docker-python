@@ -16,8 +16,8 @@ Vagrant.configure(2) do |config|
     vb.memory = "8192"
   end
 
-  config.vm.synced_folder "/d/Dev/GitHub/", "/home/vagrant/GitHub"
-  config.vm.synced_folder "/c/Users/plaks/.aws", "/home/vagrant/.aws"
+  config.vm.synced_folder "D:/Dev/GitHub/", "/home/vagrant/GitHub"
+  config.vm.synced_folder "C:/Users/plaks/.aws", "/home/vagrant/.aws"
 
   #config.vm.provision "file", source: "~/.aws", destination: "~/.aws"
 
