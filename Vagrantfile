@@ -9,7 +9,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 443, host: 44443
   config.vm.network "forwarded_port", guest: 49001, host: 8001
   config.ssh.forward_agent = true
-  config.vm.network "private_network", ip: "192.168.33.20"
+  config.vm.network "private_network", ip: "192.168.19.86"
 
   config.vm.provider "virtualbox" do |vb|
    # Customize the amount of memory on the VM:
